@@ -1,0 +1,18 @@
+<APIProxy revision="1" name="LocationService">
+    <DisplayName></DisplayName>
+    <Description></Description>
+    <CreatedAt>1616948745758</CreatedAt>
+    <LastModifiedAt>1616948745758</LastModifiedAt>
+    <BasePaths>/locationservice</BasePaths>
+    <Policies>
+        <Policy>add-cors</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources></Resources>
+    <TargetServers></TargetServers>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

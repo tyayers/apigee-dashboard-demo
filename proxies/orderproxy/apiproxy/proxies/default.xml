@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>Get-Name</Name>
+      </Step>
+      <Step>
+        <Condition>record.name ~ "*13"</Condition>
+        <Name>Simulate-Error</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <Flows>
+    <Flow name="customers">
+      <Description/>
+      <Request/>
+      <Response/>
+      <Condition>(proxy.pathsuffix MatchesPath "/customers") and (request.verb = "POST" or request.verb = "GET")</Condition>
+    </Flow>
+    <Flow name="orders">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>EV-GetOrderId</Name>
+        </Step>
+        <Step>
+          <Name>SC-SetLocation</Name>
+        </Step>
+      </Request>
+      <Response/>
+      <Condition>(proxy.pathsuffix MatchesPath "/orders") and (request.verb = "POST")</Condition>
+    </Flow>
+    <Flow name="health">
+      <Description/>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>mock</Name>
+        </Step>
+      </Response>
+      <Condition>(proxy.pathsuffix MatchesPath "/health") and (request.verb = "GET")</Condition>
+    </Flow>
+  </Flows>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response>
+      <Step>
+        <Name>beautify-json</Name>
+      </Step>
+      <Step>
+        <Name>set-cors</Name>
+      </Step>
+      <Step>
+        <Name>Add-Location</Name>
+      </Step>
+      <Step>
+        <Condition>(proxy.pathsuffix MatchesPath "/orders") and (request.verb = "POST")</Condition>
+        <Name>Broadcast-Update</Name>
+      </Step>
+    </Response>
+  </PostFlow>
+  <HTTPProxyConnection>
+    <BasePath>/orderservice</BasePath>
+    <VirtualHost>secure</VirtualHost>
+  </HTTPProxyConnection>
+  <RouteRule name="health">
+    <Condition>(proxy.pathsuffix MatchesPath "/health")</Condition>
+  </RouteRule>
+  <RouteRule name="sap-business-partner">
+    <Condition>(proxy.pathsuffix MatchesPath "/customers")</Condition>
+    <TargetEndpoint>SAP Business Partner OData API</TargetEndpoint>
+  </RouteRule>
+  <RouteRule name="orders">
+    <Condition>(proxy.pathsuffix MatchesPath "/orders")</Condition>
+    <TargetEndpoint>SAP Sales Orders REST API</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>

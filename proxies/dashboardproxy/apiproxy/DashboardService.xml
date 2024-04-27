@@ -1,0 +1,20 @@
+<APIProxy revision="3" name="DashboardService">
+    <DisplayName></DisplayName>
+    <Description></Description>
+    <CreatedAt>1617000091681</CreatedAt>
+    <LastModifiedAt>1617000091681</LastModifiedAt>
+    <BasePaths>/dashboard</BasePaths>
+    <Policies>
+        <Policy>Set-Map-Flag</Policy>
+        <Policy>Prevent-URL-copy</Policy>
+        <Policy>set-gmaps-key</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources></Resources>
+    <TargetServers></TargetServers>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

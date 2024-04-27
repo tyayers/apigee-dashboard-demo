@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="true" enabled="true" name="SC-SetLocation">
+  <DisplayName>SC-SetLocation</DisplayName>
+  <Properties/>
+  <Request clearPayload="true" variable="myRequest">
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Set>
+      <Verb>POST</Verb>
+    </Set>
+  </Request>
+  <Response>calloutResponse</Response>
+  <LocalTargetConnection>
+    <Path>/locationservice/locations/{order.id}</Path>
+  </LocalTargetConnection>
+</ServiceCallout>

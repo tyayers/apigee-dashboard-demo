@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="SAP Business Partner OData API">
+  <Description/>
+  <FaultRules/>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>Prevent-URL-copy</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <Flows/>
+  <HTTPTargetConnection>
+    <Properties/>
+    <URL>https://sap-s4-mock-h7pi7igbcq-ew.a.run.app/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner</URL>
+  </HTTPTargetConnection>
+</TargetEndpoint>

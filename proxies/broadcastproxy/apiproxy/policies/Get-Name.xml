@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="Get-Name">
+    <DisplayName>Get-Name</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <URIPath>
+        <Pattern ignoreCase="true">**/{resource}</Pattern>
+    </URIPath>
+    <JSONPayload>
+        <Variable name="name">
+            <JSONPath>$.BusinessPartnerFullName</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>record</VariablePrefix>
+</ExtractVariables>

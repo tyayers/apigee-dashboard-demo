@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="Broadcast-Update">
+  <DisplayName>Broadcast Update</DisplayName>
+  <Properties/>
+  <Request clearPayload="true" variable="myRequest">
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Set>
+      <Verb>POST</Verb>
+    </Set>
+  </Request>
+  <Response>calloutResponse</Response>
+  <HTTPTargetConnection>
+    <Properties/>
+    <URL>https://dev.34-36-221-53.nip.io/broadcastservice/updates</URL>
+  </HTTPTargetConnection>
+</ServiceCallout>

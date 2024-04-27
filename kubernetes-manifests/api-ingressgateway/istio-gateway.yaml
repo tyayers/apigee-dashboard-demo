@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: api-ingress
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - api-gateway
+  http:
+  - name: "sap-orderservice"
+    match:
+    - uri:
+        prefix: "/orders"
+    rewrite:
+      uri: "/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrder"
+    route:
+    - destination:
+        host: saporderservice.sap.svc.cluster.local
+        port:
+          number: 8080
+  - route:
+    - destination:
+        host: proxyservice
+        port:
+          number: 10000

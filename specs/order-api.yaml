@@ -1,0 +1,212 @@
+# Example OpenAPI YAML to get you started quickly.
+# Note: YAML has indentation based coping.
+# Code completion support is available so start typing for
+# available options.
+# This example follows the recommendations of the API 
+# Improvement Proposals for common API patterns. Find more
+# at https://google.aip.dev/
+
+# Find the full OpenAPI reference at:
+# https://github.com/OAI/OpenAPI-Specification
+openapi: 3.0.3
+
+# This is your document metadata.
+info:
+  version: 0.0.1
+  title: Order API
+  description: |
+    API for Sales Orders.
+
+    This API follows the recommendations of the
+    [Google API Improvement Proposals](https://google.aip.dev/).
+
+# Servers where this API is hosted
+servers: 
+  - url: https://emea-poc13-test.apigee.net/business-objects-api
+
+# Describe your paths here
+paths:
+  # This is a endpoint path.
+  '/orders':
+    # This is an HTTP operation
+    get:
+      # Describe this verb here. Note: you can use markdown
+      summary: 'List `Sales Order` objects.'
+      description: |
+        Retrieve a page of `Sales Order` objects from the server. 
+        Follows the standards for parameters from the
+        [List AIP](  https://aip.dev/132).
+      # This is an array of GET operation parameters:
+      parameters:
+        # An example parameter that is in query and is required
+        - name: pageSize
+          in: query
+          description: |
+            Max size of returned list. 
+          schema:
+            type: integer
+            default: 25
+        - name: pageToken
+          in: query
+          description: |
+            A page token recieved from the previous list call.
+            Provide this to retrieve the next page.
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          description: |
+            The ordering of the returned list. See the
+            [List Ordering AIP](  https://aip.dev/132) for 
+            details on the formatting of this field.
+          schema:
+            type: string
+            default: 'displayName'
+        - name: filter
+          in: query
+          description: |
+            Filter that will be used to select Person objects to
+            return. See the [Filtering AIP](https://aip.dev/160)
+            for usage and details on the filtering grammar.
+          schema:
+            type: string
+      responses:
+        # Response code
+        '201':
+          description: Successful response
+          # Response body content.
+          content:
+            # JSON response with a schema referenced from the  
+            # components object.
+            application/json:
+              schema:
+                type: object
+                properties:
+                  persons:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ListOfOrders'
+                  nextPageToken:
+                    description: |
+                      A token which can be sent as `pageToken`
+                      to retrieve the next page.
+                    type: string            
+    post:
+      summary: Creates a new Sales Order
+      description: Creates a new Sales Order
+      requestBody:
+        description: Sales Order object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        '201':
+          description: Successful response
+          # Response body content.
+          content:
+            # JSON response with a schema referenced from the  
+            # components object.
+            application/json:
+              schema:
+                type: object
+                properties:
+                  persons:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ListOfOrders'
+                  nextPageToken:
+                    description: |
+                      A token which can be sent as `pageToken`
+                      to retrieve the next page.
+                    type: string
+  '/orders/{order}':
+    get:
+      description: 'Retrieve a single Order object.'
+      parameters:
+        - name: order
+          in: path
+          description: |
+            Unique identifier of the desired order object.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '404':
+          description: 'Order was not found'
+
+# Reusable components of your API belong here. Utilize
+# components with JSON references.
+components:
+  # Schemas is a map of names to Schema objects
+  schemas:
+    # A list of Order objects
+    ListOfOrders:
+      title: List of Sales Orders
+      type: array
+      items:
+        $ref: '#/components/schemas/Order'
+    # A single order object
+    Order:
+      title: Order
+      type: object
+      properties:
+        SalesOrder:
+          description: |
+            [Resource Name](https://aip.dev/122) of an order.
+            Format: `orders/{orderId}`
+          type: string
+          example: "orders/a353-x51d"
+          pattern: 'orders\/[a-z0-9-]+'
+        SalesOrderType:
+          description: 'Type code of the order.'
+          type: string
+          example: "OHR"
+        SalesOrganization:
+          description: 'The sales organization of the order'
+          type: string
+        CreationDate:
+          description: 'The create date of the order'
+          type: string
+        CreatedByUser:
+          description: 'The user who created the order'
+          type: string
+        SalesOrderDate:
+          description: 'The date of the sales order'
+          type: string    
+        TotalNetAmount:
+          description: 'The net amount of the sales order'
+          type: string          
+        TransactionCurrency:
+          description: 'The currency of the sales order'
+          type: string          
+        PricingDate:
+          description: 'The date of the price'
+          type: string                 
+        SoldToParty:
+          description: 'The buyer of the goods'
+          type: string
+        DistributionChannel:
+          description: 'The sales distribution channel of the order'
+          type: string  
+        RequestedDeliveryDate:
+          description: 'Requested delivery date for the order'
+          type: string
+        OverallTotalDeliveryStatus:
+          description: 'Delivery status of the order'
+          type: string
+        Latitude:
+          description: 'The current latitude of the sales order (delivery)'
+          type: string
+        Longitude:
+          description: 'The current longitude of the sales order (delivery)'
+          type: string        

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="gmaps">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+               <Name>Prevent-URL-copy</Name>
+            </Step>
+            <Step>
+               <Name>set-gmaps-key</Name>
+            </Step>            
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows/>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPTargetConnection>
+        <URL>https://maps.googleapis.com/maps/api/js</URL>
+    </HTTPTargetConnection>
+</TargetEndpoint>

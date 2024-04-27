@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="Call-Azure-Function">
+    <DisplayName>Call-Azure-Function</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="azureRequest">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <Response>azureResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://hc-test2.azurewebsites.net/api/hc-scheduleservice</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

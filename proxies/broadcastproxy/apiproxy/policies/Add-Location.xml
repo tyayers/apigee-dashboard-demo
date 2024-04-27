@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript continueOnError="false" enabled="true" timeLimit="200" name="Add-Location">
+    <DisplayName>Add-Location</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://Add-Location.js</ResourceURL>
+</Javascript>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="15" name="OrderService">
+  <DisplayName>Business Objects API</DisplayName>
+  <Description/>
+  <CreatedAt>1714128545160</CreatedAt>
+  <LastModifiedAt>1714128545160</LastModifiedAt>
+  <BasePaths>/orderservice</BasePaths>
+  <Policies>
+    <Policy>Add-Location</Policy>
+    <Policy>Broadcast-Update</Policy>
+    <Policy>Get-Name</Policy>
+    <Policy>Location-Service</Policy>
+    <Policy>Prevent-URL-copy</Policy>
+    <Policy>Simulate-Error</Policy>
+    <Policy>beautify-json</Policy>
+    <Policy>mock</Policy>
+    <Policy>set-cors</Policy>
+    <Policy>EV-GetOrderId</Policy>
+    <Policy>SC-SetLocation</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <Resources>
+    <Resource>jsc://Add-Location.js</Resource>
+    <Resource>jsc://beautify-json.js</Resource>
+    <Resource>jsc://mock.js</Resource>
+  </Resources>
+  <TargetEndpoints>
+    <TargetEndpoint>SAP Business Partner OData API</TargetEndpoint>
+    <TargetEndpoint>SAP Sales Orders REST API</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

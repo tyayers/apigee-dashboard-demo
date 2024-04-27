@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>WebSocket Tester</title>
+  </head>
+  <body>
+    <div id="updates"></div>
+
+    <script>
+
+      function addMessage(message) {
+        var messageDiv = document.createElement("div");
+        messageDiv.append(message);
+        document.getElementById("updates").appendChild(messageDiv);
+      }
+
+      // if user is running mozilla then use it's built-in WebSocket
+      window.WebSocket = window.WebSocket || window.MozWebSocket;
+
+      //var connection = new WebSocket('wss://broadcastservice-wysd2j4anq-ew.a.run.app');
+      var connection = new WebSocket('ws://localhost:8080');
+
+      connection.onopen = function () {
+        // connection is opened and ready to use
+        addMessage("wss connected");
+      };
+
+      connection.onerror = function (error) {
+        // an error occurred when sending/receiving data
+        addMessage("connection error: " + JSON.stringify(error))
+      };
+
+      connection.onmessage = function (message) {
+        // try to decode json (I assume that each message
+        // from server is json)
+        try {
+          var json = JSON.parse(message.data);
+          addMessage(message.data);
+        } catch (e) {
+          console.log('This doesn\'t look like a valid JSON: ',
+              message.data);
+          return;
+        }
+      };
+    </script>
+  </body>
+</html>

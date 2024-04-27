@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>set-cors</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/broadcastservice</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="health">
+        <Condition>(proxy.pathsuffix MatchesPath "/health")</Condition>
+    </RouteRule>
+    <RouteRule name="ws">
+        <Condition>(proxy.pathsuffix MatchesPath "")</Condition>
+        <TargetEndpoint>BroadcastWS</TargetEndpoint>
+    </RouteRule>
+    <RouteRule name="default">
+        <Condition>(proxy.pathsuffix MatchesPath "/**")</Condition>
+        <TargetEndpoint>BroadcastService</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locationservice
+spec:
+  selector:
+    matchLabels:
+      app: locationservice
+  template:
+    metadata:
+      labels:
+        app: locationservice
+        # managed-by: apigee
+    spec:
+      terminationGracePeriodSeconds: 3
+      containers:
+      - name: server
+        image: eu.gcr.io/bruno-1407a/locationservice:latest
+        imagePullPolicy: Always
+        ports:
+          - name: http
+            containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: locationservice
+  labels:
+    app: locationservice
+spec:
+  ports:
+  - port: 80
+    name: http
+    targetPort: 8080
+  selector:
+    app: locationservice

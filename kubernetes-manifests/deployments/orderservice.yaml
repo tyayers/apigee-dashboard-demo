@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saporderservice
+spec:
+  selector:
+    matchLabels:
+      app: saporderservice
+  template:
+    metadata:
+      labels:
+        app: saporderservice
+        # managed-by: apigee
+    spec:
+      terminationGracePeriodSeconds: 4
+      containers:
+      - name: server
+        image: eu.gcr.io/{PROJECT}/saporderservice:latest
+        imagePullPolicy: Always
+        ports:
+          - name: http
+            containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saporderservice
+  labels:
+    app: saporderservice
+spec:
+  ports:
+  - port: 8080
+    name: http
+    targetPort: 8080
+  selector:
+    app: saporderservice

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="Set-Map-Flag">
+    <DisplayName>Set-Map-Flag</DisplayName>
+    <Properties/>
+    <Set>
+        <QueryParams>
+            <QueryParam name="showMap">true</QueryParam>
+        </QueryParams>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

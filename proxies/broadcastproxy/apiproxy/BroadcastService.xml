@@ -1,0 +1,31 @@
+<APIProxy revision="10" name="OrderService">
+    <DisplayName>Broadcast Service API</DisplayName>
+    <Description></Description>
+    <CreatedAt>1617093755673</CreatedAt>
+    <LastModifiedAt>1617093755673</LastModifiedAt>
+    <BasePaths>/broadcastservice</BasePaths>
+    <Policies>
+        <Policy>Simulate-Error</Policy>
+        <Policy>beautify-json</Policy>
+        <Policy>set-cors</Policy>
+        <Policy>Prevent-URL-copy</Policy>
+        <Policy>mock</Policy>
+        <Policy>Get-Name</Policy>
+        <Policy>Location-Service</Policy>
+        <Policy>Add-Location</Policy>
+        <Policy>Broadcast-Update</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://beautify-json.js</Resource>
+        <Resource>jsc://mock.js</Resource>
+        <Resource>jsc://Add-Location.js</Resource>
+    </Resources>
+    <TargetServers></TargetServers>
+    <TargetEndpoints>
+        <TargetEndpoint>BroadcastWS</TargetEndpoint>
+        <TargetEndpoint>BroadcastService</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

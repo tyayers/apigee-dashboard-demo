@@ -14,14 +14,7 @@
 
 #!/bin/bash
 
-export PROJECT="cloud2x"
-export NETWORK="default"
-export SUBNETWORK="default"
-export LOCATION="europe-west1-c"
-export CLUSTERNAME="boutiquecluster"
-export FRONTEND_GATEWAY_NAMESPACE="frontend-ingress"
-export API_GATEWAY_NAMESPACE="api-ingress"
-export APIGEE_HOST="eval-group.34-111-104-118.nip.io"
-export APIGEE_ENV="eval"
-
-gcloud config set project $PROJECT
+export PROJECT_ID=
+export REGION=
+export GMAPS_KEY=
+export APIGEE_ENV=

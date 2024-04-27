@@ -1,9 +1,6 @@
-# Enable APIs
-gcloud services enable cloudbuild.googleapis.com
-gcloud services enable run.googleapis.com
 
 # Build container image
-gcloud builds submit --tag "eu.gcr.io/$PROJECT/saporderservice"
+gcloud builds submit --tag "eu.gcr.io/$PROJECT_ID/orderservice"
 
-gcloud run deploy saporderservice --image "eu.gcr.io/$PROJECT/saporderservice" --platform managed --project "$PROJECT" \
-	--region europe-west1 --allow-unauthenticated
+gcloud run deploy orderservice --image "eu.gcr.io/$PROJECT_ID/orderservice" --platform managed --project "$PROJECT_ID" \
+	--region $REGION --no-allow-unauthenticated

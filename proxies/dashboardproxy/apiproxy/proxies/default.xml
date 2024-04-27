@@ -2,6 +2,9 @@
 <ProxyEndpoint name="default">
     <PreFlow name="PreFlow">
         <Request>
+          <Step>
+            <Name>KVM-GetMapsKey</Name>
+          </Step>
         </Request>
         <Response/>
     </PreFlow>

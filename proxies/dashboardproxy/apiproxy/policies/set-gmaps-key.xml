@@ -4,7 +4,7 @@
     <Properties/>
     <Set>
         <QueryParams>
-            <QueryParam name="key"></QueryParam>
+            <QueryParam name="key">{gmaps_key}</QueryParam>
         </QueryParams>
     </Set>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>

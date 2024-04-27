@@ -21,6 +21,11 @@
   <Flows/>
   <HTTPTargetConnection>
     <Properties/>
-    <URL>https://saporderservice-wysd2j4anq-ew.a.run.app/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrder</URL>
+    <Authentication>
+      <GoogleIDToken>
+          <Audience ref="orderservice_url"></Audience>
+      </GoogleIDToken>
+    </Authentication>
+    <URL>{orderservice_url}/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrder</URL>
   </HTTPTargetConnection>
 </TargetEndpoint>

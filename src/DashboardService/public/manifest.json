@@ -1,0 +1,20 @@
+{
+  "name": "Volt React Dashboard",
+  "short_name": "Volt React Dashboard",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?utm_source=a2hs",
+  "theme_color": "#563d7c",
+  "background_color": "#563d7c",
+  "display": "standalone"
+}

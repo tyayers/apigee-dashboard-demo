@@ -18,3 +18,4 @@ export PROJECT_ID=
 export REGION=
 export GMAPS_KEY=
 export APIGEE_ENV=
+export APIGEE_ENVGROUP_HOST=

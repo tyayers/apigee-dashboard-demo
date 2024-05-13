@@ -41,19 +41,31 @@ app.post('/locations/:orderid', (req, res) => {
   let obj = locs.find(o => o.SalesOrder === orderId);
 
   if (!obj) {
-    getNewLocation().then((result) => {
+    if (orderId.includes("123")) {
       var newObj = {
         SalesOrder: orderId,
-        Latitude: result.lat,
-        Longitude: result.lon
+        Latitude: "42.698334",
+        Longitude: "23.319941"
       };
 
       locs.push(newObj);
       res.status(201).send(newObj);
-    })
+    }
+    else {
+      getNewLocation().then((result) => {
+        var newObj = {
+          SalesOrder: orderId,
+          Latitude: result.lat,
+          Longitude: result.lon
+        };
+
+        locs.push(newObj);
+        res.status(201).send(newObj);
+      })
       .catch((error) => {
         res.status(404).send("Location not available.");
       });
+    }
   }
   else {
     // we already have this object

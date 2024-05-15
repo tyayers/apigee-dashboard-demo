@@ -14,8 +14,13 @@
 
 #!/bin/bash
 
+# The GCP project ID to deploy to. Your user must be logged into gcloud editor rights for the project.
 export PROJECT_ID=
+# The GCP region to deploy the services to.
 export REGION=
+# A valid Google Maps API key. You can get a key from the GCP API console.
 export GMAPS_KEY=
+# The Apigee environment to deploy the proxies to.
 export APIGEE_ENV=
+# The Apigee environment group host path, or root URL, for the proxies, for example dev.36-36-221-53.nip.io.
 export APIGEE_ENVGROUP_HOST=

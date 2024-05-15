@@ -41,7 +41,7 @@ app.post('/locations/:orderid', (req, res) => {
   let obj = locs.find(o => o.SalesOrder === orderId);
 
   if (!obj) {
-    if (orderId.includes("123")) {
+    if (orderId.toLowerCase().includes("sofia")) {
       var newObj = {
         SalesOrder: orderId,
         Latitude: "42.698334",

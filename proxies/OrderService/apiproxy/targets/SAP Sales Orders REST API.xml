@@ -15,6 +15,7 @@
     <Response>
       <Step>
         <Name>Location-Service</Name>
+        <Condition>location_feature_flag = "true"</Condition>
       </Step>
     </Response>
   </PostFlow>

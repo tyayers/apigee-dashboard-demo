@@ -25,6 +25,7 @@ ORDER_ID=994000304
 curl -X POST "https://$APIGEE_ENVGROUP_HOST/orderservice/orders" \
 	-H "Content-Type: application/json" \
 	--data-binary @- << EOF
+
 {
 	"SalesOrder": "$ORDER_ID",
 	"CreatedByUser": "TYLER",
@@ -32,3 +33,7 @@ curl -X POST "https://$APIGEE_ENVGROUP_HOST/orderservice/orders" \
 }
 EOF
 ```
+
+After creating an order, you can also enable the location feature flag to get the map view and location data by running the `4.set_feature_flag.sh` script.
+
+After waiting a few seconds, you can refersh the dashboard, and see the map view, that will also automatically display new orders when they are created (and throws some confetti to celebrate).

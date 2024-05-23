@@ -8,10 +8,6 @@
       <Step>
         <Name>KVM-GetValues</Name>
       </Step>
-      <Step>
-        <Condition>record.name ~ "*13"</Condition>
-        <Name>Simulate-Error</Name>
-      </Step>
     </Request>
     <Response/>
   </PreFlow>

@@ -14,6 +14,8 @@ gcloud run deploy $NAME_LOWERCASE --image "eu.gcr.io/$PROJECT_ID/$NAME_LOWERCASE
 SERVICE_URL=$(gcloud run services describe $NAME_LOWERCASE --format 'value(status.url)' --region $REGION)
 apigeecli kvms entries create -m dash-keys -k "$NAME_LOWERCASE"_url -l $SERVICE_URL -e $APIGEE_ENV -o $PROJECT_ID -t $(gcloud auth print-access-token) 2>/dev/null
 apigeecli kvms entries update -m dash-keys -k "$NAME_LOWERCASE"_url -l $SERVICE_URL -e $APIGEE_ENV -o $PROJECT_ID -t $(gcloud auth print-access-token)
+apigeecli kvms entries create -m dash-keys -k location_feature_flag -l false -e $APIGEE_ENV -o $PROJECT_ID -t $(gcloud auth print-access-token) 2>/dev/null
+apigeecli kvms entries update -m dash-keys -k location_feature_flag -l false -e $APIGEE_ENV -o $PROJECT_ID -t $(gcloud auth print-access-token)
 cd ../..
 # Deploy proxy
 cd ./proxies/$NAME

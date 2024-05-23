@@ -3,11 +3,16 @@
   <DisplayName>KVM-GetValues</DisplayName>
   <Properties/>
   <ExclusiveCache>false</ExclusiveCache>
-  <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+  <ExpiryTimeInSecs>10</ExpiryTimeInSecs>
   <Get assignTo="orderservice_url" index="1">
     <Key>
       <Parameter>orderservice_url</Parameter>
     </Key>
   </Get>
+  <Get assignTo="location_feature_flag" index="1">
+    <Key>
+      <Parameter>location_feature_flag</Parameter>
+    </Key>
+  </Get>  
   <Scope>environment</Scope>
 </KeyValueMapOperations>

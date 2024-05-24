@@ -4,15 +4,26 @@ This is a simple demo app for Apigee X that shows some real-time API communicati
 You can deploy this into your GCP project that has Apigee X provisioned using these steps.
 
 ```sh
+# If needed, install apigeecli
+curl -L https://raw.githubusercontent.com/apigee/apigeecli/main/downloadLatest.sh | sh -
+export PATH=$PATH:$HOME/.apigeecli/bin 
+
+# Clone the repo assets
+git clone https://github.com/tyayers/apigee-dashboard-demo.git
+cd apigee-dashboard-demo
+
 # First copy the 1.env.sh file to a local version
 cp 1.env.sh 1.env.local.sh
 # Edit the local file using nano or your editor of choice and set the environment variables
 nano 1.env.local.sh
 
-# Now call the 2.create-resources.sh script to prepare the project
+# Source the environment variables
+source 1.env.local.sh
+
+# Now call the create resources script to create a service account, set roles, etc..
 ./2.create-resources.sh
 
-# Call the 3.deploy.sh script to deploy the proxies and services
+# Deploy the services and assets
 ./3.deploy.sh
 ```
 

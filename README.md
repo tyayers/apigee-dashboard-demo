@@ -33,9 +33,13 @@ source 1.env.local.sh
 
 After deploying, you can reach the dashboard UI at **https://APIGEE_ENVGROUP_HOST/dashboard**.
 
-You can create new orders using a cURL command, and you will see them broadcast immediately to the dashboard via a websocket connection in the API proxy. The location service will also fetch a location and display the order on the map.
+You can create new orders using a cURL command, and you will see them broadcast immediately to the dashboard via a websocket connection in the API proxy. The location service will also fetch a location and display the order on the map, if the `location_feature_flag` is enabled.
 
 ```sh
+# Get existing orders
+curl "https://$APIGEE_ENVGROUP_HOST/orderservice/orders"
+
+# Create a new order
 ORDER_ID=994000304
 curl -X POST "https://$APIGEE_ENVGROUP_HOST/orderservice/orders" \
 	-H "Content-Type: application/json" \
@@ -51,4 +55,4 @@ EOF
 
 After creating an order, you can also enable the location feature flag to get the map view and location data by running the `4.turn_feature_flag_on.sh` script, and turning it back off again with `5.turn_feature_flag_off.sh`.
 
-After waiting a few seconds, you can refersh the dashboard, and see the map view, that will also automatically display new orders when they are created (and throws some confetti to celebrate).
+After waiting a few seconds, you can refresh the dashboard, and see the map view which will also automatically display new orders when they are created (and throw some confetti to celebrate).

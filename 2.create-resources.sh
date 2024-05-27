@@ -1,3 +1,5 @@
+gcloud config set project $PROJECT_ID
+
 # Enable APIs
 gcloud services enable cloudbuild.googleapis.com
 gcloud services enable run.googleapis.com

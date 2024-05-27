@@ -3,7 +3,7 @@ This is a simple demo app for Apigee X that shows some real-time API communicati
 
 ## Prerequisites
 - A GCP project with Apigee X provisioned (see [Apigee X Getting started documentation](https://cloud.google.com/apigee/docs/api-platform/get-started/provisioning-intro) for info on getting Apigee X set up). You can also create a GCP project and Apigee X with a [simple terraform deployment](https://github.com/tyayers/apigee-x-tf-quickstart).
-- The Google Cloud CLI [gcloud](https://cloud.google.com/sdk/docs/install) installed and autenticated.
+- The Google Cloud CLI [gcloud](https://cloud.google.com/sdk/docs/install) installed and authenticated.
 - The Apigee automation tool [apigeecli](https://github.com/apigee/apigeecli) should be installed. It's used to automate tasks in Apigee X, the installation can also be run in the first line of the script below.
 
 ## Deployment

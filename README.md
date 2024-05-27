@@ -1,8 +1,12 @@
 # Apigee Dashboard Demo App
 This is a simple demo app for Apigee X that shows some real-time API communication between microservices deployed in GCP, a frontend, and APIs running in Apigee.
 
-You can deploy this into your GCP project that has Apigee X provisioned using these steps.
+## Prerequisites
+- A GCP project with Apigee X provisioned (see [Apigee X Getting started documentation](https://cloud.google.com/apigee/docs/api-platform/get-started/provisioning-intro) for info on getting Apigee X set up). You can also create a GCP project and Apigee X with a [simple terraform deployment](https://github.com/tyayers/apigee-x-tf-quickstart).
+- The Google Cloud CLI [gcloud](https://cloud.google.com/sdk/docs/install) installed and autenticated.
+- The Apigee automation tool [apigeecli](https://github.com/apigee/apigeecli) should be installed. It's used to automate tasks in Apigee X, the installation can also be run in the first line of the script below.
 
+## Deployment
 ```sh
 # If needed, install apigeecli
 curl -L https://raw.githubusercontent.com/apigee/apigeecli/main/downloadLatest.sh | sh -

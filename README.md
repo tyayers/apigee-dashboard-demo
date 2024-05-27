@@ -49,6 +49,6 @@ curl -X POST "https://$APIGEE_ENVGROUP_HOST/orderservice/orders" \
 EOF
 ```
 
-After creating an order, you can also enable the location feature flag to get the map view and location data by running the `4.set_feature_flag.sh` script.
+After creating an order, you can also enable the location feature flag to get the map view and location data by running the `4.turn_feature_flag_on.sh` script, and turning it back off again with `5.turn_feature_flag_off.sh`.
 
 After waiting a few seconds, you can refersh the dashboard, and see the map view, that will also automatically display new orders when they are created (and throws some confetti to celebrate).

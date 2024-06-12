@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 // enabling CORS for all requests
 app.use(cors());
 
-const countries = ["de", "fr", "ru", "it", "es", "pl", "ir"];
+const countries = ["de", "fr", "it", "es", "pl", "ie", "gb"];
 
 const locindexes = {}
 
@@ -41,11 +41,11 @@ app.post('/locations/:orderid', (req, res) => {
   let obj = locs.find(o => o.SalesOrder === orderId);
 
   if (!obj) {
-    if (orderId.toLowerCase().includes("sofia")) {
+    if (orderId.toLowerCase().includes("insurance")) {
       var newObj = {
         SalesOrder: orderId,
-        Latitude: "42.698334",
-        Longitude: "23.319941"
+        Latitude: "48.1351",
+        Longitude: "11.5820"
       };
 
       locs.push(newObj);
